@@ -1,0 +1,180 @@
+<div class="container">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <h3>Test</h3>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Entity Type</mat-label>
+                    <mat-select
+                    value="select" 
+                    required
+                    formControlName="entityFormControl"
+                    class="form-control">
+                        <mat-option 
+                        *ngFor="let entity of entityList"
+                        value="entity">{{entity}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Year Started</mat-label>
+                    <input
+                    matInput 
+                    type="year"
+                    required
+                    formControlName="yearStartedFormControl"
+                    class="form-control">
+                </mat-form-field>
+                <span
+                *ngIf="!recipeForm.get('yearStartedFormControl').valid && recipeForm.get('yearStartedFormControl').touched"
+                class="help-block">
+                    <mat-error
+                    *ngIf="!recipeForm.get('yearStartedFormControl').errors['lessthancurrentyear']">
+                    Year cannot be greater than current year <br>
+                    </mat-error>
+                    <mat-error
+                    *ngIf="!recipeForm.get('yearStartedFormControl').errors['greaterthan1900']">
+                     Year cannot be less than 1900<br>
+                    </mat-error>
+                    <span
+                    *ngIf="!recipeForm.get('yearStartedFormControl').errors['minlength']">
+                     Year should have min of 4 digits<br>
+                    </span>
+                    <span
+                    *ngIf="recipeForm.get('yearStartedFormControl').errors['required']">
+                     It is required!<br>
+                    </span>
+                </span>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Website Address(Optional)</mat-label>
+                    <input 
+                    matInput 
+                    type="url"
+                    maxlength="50"
+                    formControlName="websiteAddressFormControl"
+                    class="form-control">
+                </mat-form-field>
+                <span
+                *ngIf="!recipeForm.get('websiteAddressFormControl').valid && recipeForm.get('websiteAddressFormControl').touched"
+                class="help-block">
+                    Website address format is invalid<br>
+                </span>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------- -->
+            <div class="col-sm-9 col-md-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>FEIN</mat-label>
+                    <input 
+                    matInput 
+                    type="numeric"
+                    maxlength="10"
+                    minlength="10"
+                    formControlName="feinFormControl"
+                    class="form-control">
+                </mat-form-field>
+                <span  *ngIf="!recipeForm.get('feinFormControl').valid && recipeForm.get('feinFormControl').touched"
+                    class="help-block">
+                        <mat-error>
+                        Fein number is nine(9) digits. The value has a hyphen after second digit. Ex: 12-3456789
+                        </mat-error>
+                </span>
+            </div>
+        </div>
+        <h3>Primary Contact(Optional)</h3>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>FirstName(Optional)</mat-label>
+                    <input 
+                    matInput 
+                    formControlName="firstNameFormControl"
+                    maxlength="50"
+                    class="form-control"
+                    [required]="recipeForm.get('lastNameFormControl').valid && recipeForm.get('lastNameFormControl').dirty && recipeForm.get('lastNameFormControl').value != ''"
+                    type="text">
+                </mat-form-field>
+                <span *ngIf="!recipeForm.get('firstNameFormControl').valid && recipeForm.get('firstNameFormControl').touched"
+                class="help-block">
+                    <mat-error>
+                        LastName is invalid!
+                    </mat-error>
+                    <mat-error
+                    *ngIf="recipeForm.get('firstNameFormControl').errors['required']">
+                    It is required!<br>
+                    </mat-error>
+                </span>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Mobile Phone Number(Optional)</mat-label>
+                    <input 
+                    matInput 
+                    formControlName="mobileFormControl"
+                    placeholder="Ex: 999-999-9999"
+                    [required]="(recipeForm.get('firstNameFormControl').valid && recipeForm.get('firstNameFormControl').dirty
+                    && recipeForm.get('firstNameFormControl').value != '') && 
+                    (recipeForm.get('lastNameFormControl').valid && recipeForm.get('lastNameFormControl').dirty &&
+                    recipeForm.get('lastNameFormControl').value != '')"
+                    maxlength="12"
+                    minlength="12"
+                    class="form-control"
+                    type="text">
+                </mat-form-field>
+                <span
+                *ngIf="!recipeForm.get('mobileFormControl').valid && recipeForm.get('mobileFormControl').touched"
+                class="help-block">
+                <mat-error>
+                    Please enter a valid phone number
+                    </mat-error>
+                    <mat-error *ngIf="recipeForm.get('mobileFormControl').hasError('required')">
+                    phone is <strong>required</strong>
+                </mat-error>
+                </span>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>LastName(Optional)</mat-label>
+                    <input 
+                    matInput 
+                    formControlName="lastNameFormControl"
+                    maxlength="50"
+                    class="form-control"
+                    [required]="recipeForm.get('firstNameFormControl').valid && recipeForm.get('firstNameFormControl').dirty && recipeForm.get('firstNameFormControl').value != ''"
+                    type="text">
+                </mat-form-field>
+                <span *ngIf="!recipeForm.get('lastNameFormControl').valid && recipeForm.get('lastNameFormControl').touched"
+                class="help-block">
+                    <mat-error>
+                        LastName is invalid!
+                    </mat-error>
+                    <mat-error
+                    *ngIf="recipeForm.get('lastNameFormControl').errors['required']">
+                    It is required!<br>
+                    </mat-error>
+                </span>
+                <mat-form-field class="example-full-width">
+                    <mat-label>EmailAddress(Optional)</mat-label>
+                    <input 
+                    matInput 
+                    type="text" 
+                    [errorStateMatcher]="matcher"
+                    [required]="(recipeForm.get('firstNameFormControl').valid && recipeForm.get('firstNameFormControl').dirty
+                    && recipeForm.get('firstNameFormControl').value != '') && 
+                    (recipeForm.get('lastNameFormControl').valid && recipeForm.get('lastNameFormControl').dirty &&
+                    recipeForm.get('lastNameFormControl').value != '')"
+                    placeholder="Ex. pat@example.com"
+                    formControlName="emailFormControl"
+                    maxlength="50"
+                    class="form-control">
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                    <mat-error *ngIf="recipeForm.get('emailFormControl').hasError('email') && !recipeForm.get('emailFormControl').hasError('required')">
+                    Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="recipeForm.get('emailFormControl').hasError('required')">
+                    Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <button type="submit" mat-flat-button color="primary" [disabled]="!recipeForm.valid">    Submit    </button>
+    </form>
+    {{result}}
+</div>
+

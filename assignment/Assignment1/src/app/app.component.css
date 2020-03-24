@@ -1,0 +1,31 @@
+.navbar{
+    background-color: rgb(7, 7, 126);
+}
+
+.navbar-header{
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.navbar-brand{
+    color: #ffffff;
+}
+
+a{
+    color: #ffffff;
+}
+
+#support:hover{
+    background-color: rgb(28, 144, 211);
+}
+
+#support{
+    background-color: rgb(28, 144, 211);
+}
+
+li{
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: rgb(28, 144, 211);
+}
