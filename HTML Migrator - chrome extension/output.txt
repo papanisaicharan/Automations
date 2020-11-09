@@ -1,0 +1,127 @@
+{
+	"id": "",
+	"component": "BODY",
+	"type": "element",
+	"children": [{
+		"id": "",
+		"component": "DIV",
+		"type": "element",
+		"componentProps": {
+			"class": "container-fluid"
+		},
+		"children": [{
+			"id": "",
+			"component": "DIV",
+			"type": "element",
+			"componentProps": {
+				"class": "row topper"
+			},
+			"children": [{
+					"id": "",
+					"component": "DIV",
+					"type": "element",
+					"componentProps": {
+						"class": "col-md-6 header-section"
+					},
+					"children": [{
+							"id": "",
+							"component": "DIV",
+							"type": "element",
+							"componentProps": {
+								"class": "logo"
+							},
+							"children": [{
+								"id": "",
+								"component": "A",
+								"type": "element",
+								"componentProps": {
+									"href": "/",
+									"title": "Home",
+									"rel": "home",
+									"style": "border: medium none;"
+								},
+								"children": [{
+									"id": "",
+									"component": "IMG",
+									"type": "element",
+									"componentProps": {
+										"height": "100px",
+										"width": "100px",
+										"src": "http://www.seleniumeasy.com/sites/default/files/seleniumEasy_0.jpg",
+										"alt": "Selenium Easy",
+										"role": "presentation"
+									}
+								}]
+							}]
+						},
+						{
+							"id": "name-and-slogan",
+							"component": "DIV",
+							"type": "element",
+							"componentProps": {
+								"id": "name-and-slogan"
+							},
+							"children": [{
+									"id": "site-name",
+									"component": "DIV",
+									"type": "element",
+									"componentProps": {
+										"id": "site-name",
+										"class": "site-name"
+									},
+									"children": [{
+										"id": "",
+										"component": "A",
+										"type": "element",
+										"componentProps": {
+											"href": "/",
+											"title": "Home",
+											"rel": "home"
+										},
+										"children": []
+									}]
+								},
+								{
+									"id": "site-slogan",
+									"component": "DIV",
+									"type": "element",
+									"componentProps": {
+										"id": "site-slogan",
+										"class": "site-slogan"
+									},
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "",
+					"component": "DIV",
+					"type": "element",
+					"componentProps": {
+						"class": "top-banner col-md-6"
+					},
+					"children": [{
+						"id": "",
+						"component": "A",
+						"type": "element",
+						"componentProps": {
+							"href": "https://crossbrowsertesting.com/?utm_source=seleniumeasy&utm_medium=da&utm_campaign=sedemo",
+							"target": "”_blank”"
+						},
+						"children": [{
+							"id": "",
+							"component": "IMG",
+							"type": "element",
+							"componentProps": {
+								"class": "cbt",
+								"src": "http://www.seleniumeasy.com/test/img/sponsored-by-CBT.png"
+							}
+						}]
+					}]
+				}
+			]
+		}]
+	}]
+}

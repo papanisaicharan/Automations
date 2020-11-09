@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Deloitte Portal Migration",
+  "description": "This utility will create JSON feeds for migration GW Agent portal from Angular to React",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.gif",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+   "activeTab"
+   ]
+}
