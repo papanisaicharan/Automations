@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Save Text",
+  "description": "This extension helps you to save the text without moving out of chrome.",
+  "version": "1.0",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+          "storage",
+          "notifications",
+          "contextMenus"
+        ],
+
+  "options_page": "settings.html"
+}
